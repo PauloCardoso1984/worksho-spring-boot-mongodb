@@ -1,11 +1,9 @@
 package com.paulocardoso.config;
 
 import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-
 import com.paulocardoso.domain.User;
 import com.paulocardoso.repository.UserRepository;
 
