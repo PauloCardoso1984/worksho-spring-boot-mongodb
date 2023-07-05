@@ -43,6 +43,15 @@ public class UserResource {
 		return ResponseEntity.ok().body(new UserDTO(obj));
 	}
 	
+	//METODO PARA DELETAR O USURIO POR ID - CODIGO 204
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+ 	public ResponseEntity<UserDTO> delete(@PathVariable String id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	
+	
 	// INSERIR UM NOVO USUÁRIO
 	@RequestMapping(method=RequestMethod.POST)
 	// OU PODE USAR A ANOTATION →    @PostMapping
