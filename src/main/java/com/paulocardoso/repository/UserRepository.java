@@ -2,8 +2,9 @@ package com.paulocardoso.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-import com.paulocardoso.domain.User;
 
+import com.paulocardoso.domain.Post;
+import com.paulocardoso.domain.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {

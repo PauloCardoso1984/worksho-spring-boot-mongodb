@@ -1,10 +1,12 @@
 package com.paulocardoso.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 
 @Document(collection="user")
 public class User implements Serializable {
@@ -14,6 +16,10 @@ public class User implements Serializable {
 	private String id;
 	private String name;
 	private String email;
+	
+	// ATRIBUTO DOS POSTS
+	@DBRef(lazy = true)
+	private List<Post> posts = new ArrayList<>();
 	
 	//CONSTRUTOR VAZIO
 	public User () {
@@ -51,12 +57,22 @@ public class User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
-
 	
 	// HASHCODE e EQUALS → COMPARAÇÃO
 	@Override
