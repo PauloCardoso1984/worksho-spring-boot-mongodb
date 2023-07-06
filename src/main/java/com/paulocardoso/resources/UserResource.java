@@ -66,7 +66,7 @@ public class UserResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	
+
 	// UPDATE EM UM USUÁRIO
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
  	public ResponseEntity<Void> update(@RequestBody UserDTO ObjDto, @PathVariable String id) {
@@ -82,5 +82,4 @@ public class UserResource {
 		User obj = service.findById(id);
 		return ResponseEntity.ok().body(obj.getPosts());
 	}
-	
 }
