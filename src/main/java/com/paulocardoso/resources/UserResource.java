@@ -36,12 +36,14 @@ public class UserResource {
 		return ResponseEntity.ok().body(listDto);
 	}
 	
+	
 	//METODO PARA RETORNAR O USURIO POR ID
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
  	public ResponseEntity<UserDTO> findById(@PathVariable String id) {
 		User obj = service.findById(id);
 		return ResponseEntity.ok().body(new UserDTO(obj));
 	}
+	
 	
 	//METODO PARA DELETAR O USURIO POR ID - CODIGO 204
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
@@ -62,7 +64,15 @@ public class UserResource {
 		// RESPOSTA VAZIA COM CABEÇALHO DI RECURSO CRIADO - CODIGO 201.
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
-	
 	}
-
+	
+	
+	// UPDATE EM UM USUÁRIO
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+ 	public ResponseEntity<Void> update(@RequestBody UserDTO ObjDto, @PathVariable String id) {
+		User obj = service.fromDTO(ObjDto);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+		}
 }
