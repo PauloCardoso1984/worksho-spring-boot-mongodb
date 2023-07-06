@@ -59,6 +59,7 @@ public class Instantiastion implements CommandLineRunner {
 		post2.getComments().addAll(Arrays.asList(c3));
 				
 
+		// SALVANDO OS POSTS E COMENTARIOS
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
 		maria.getPosts().addAll(Arrays.asList(post1, post2));

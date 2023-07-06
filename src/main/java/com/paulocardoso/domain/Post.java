@@ -22,6 +22,7 @@ public class Post implements Serializable {
 	private String body;
 	private AuthorDTO author;
 	
+	// ASSOCIAÇÃO COM COMMENT DTO
 	private List<CommentDTO> comments = new ArrayList<>();
 	
 	public Post() {
