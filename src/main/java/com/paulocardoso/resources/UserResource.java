@@ -22,7 +22,7 @@ import com.paulocardoso.services.UserService;
 @RestController
 
 // CAMINHO DO ENDPOINT
-@RequestMapping(value= "/users")
+@RequestMapping(value="/users")
 public class UserResource {
 
 	@Autowired
